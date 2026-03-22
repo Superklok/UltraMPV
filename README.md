@@ -1,4 +1,4 @@
-# UltraMPV v1.0.6
+# UltraMPV v1.0.7
 <br />
 
 ## The BEST realistic 4K video playback experience in the world!
