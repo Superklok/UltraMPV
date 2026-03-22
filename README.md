@@ -1,4 +1,4 @@
-# UltraMPV v1.0.1
+# UltraMPV v1.0.2
 <br />
 
 ## The BEST realistic 4K video playback experience in the world!
@@ -8,7 +8,7 @@
 ### 1. Download and install MPV Player using their [OFFICIAL GitHub repository][MPVrepo] or [SourceForge page][SourceForge].
 <br />
 
-###### Use the following instructions to download MPV Player from [SourceForge][SourceForge] and install onto Windows 11.
+###### Use the following instructions to download MPV Player from [SourceForge][SourceForge] and install onto Windows 11. Alternatively, there's a copy of the Windows MPV Player Bootstrapper (Updated 22/03/2026) in the UltraMPV repository's `/Archive` folder.
 
 ### 2. After downloading the Windows MPV Player installer from SourceForge, search your downloads for a file called `bootstrapper.zip` and extract its contents into the folder you want MPV Player program files to be stored.
 <br />
@@ -22,8 +22,10 @@
 ### 5. Open the `installer` folder that `updater.bat` downloaded into your extracted `bootstrapper` folder. Inside the `installer` folder, `right-click` the `mpv-install.bat` file to install MPV Player on your system. 
 
 ###### NOTE: You will have to re-run this `mpv-install.bat` file whenever you move or rename your extracted `bootstrapper` folder. MPV Player is a "portable" application, so Windows does not automatically track its location like it would for a standard program with a traditional installer.
+<br />
 
 ### 5. Double-click `mpv.exe` to open the MPV player. The player should open and stay open with a black screen. This indicates you have installed the proper build of MPV Player for your system.
+<br />
 
 ### 6. Access the following filepath then place the UltraMPV `mpv.conf` file inside the `mpv` folder on your system to overwrite your current `mpv.conf` file, if one exists:
 <br />
