@@ -1,4 +1,4 @@
-# UltraMPV v1.0.8
+# UltraMPV v1.0.12
 <br />
 
 ## The BEST realistic 4K video playback experience in the world!
@@ -24,17 +24,28 @@
 ###### NOTE: You will have to re-run this `mpv-install.bat` file whenever you move or rename your extracted `bootstrapper` folder. MPV Player is a "portable" application, so Windows does not automatically track its location like it would for a standard program with a traditional installer.
 <br />
 
-### 5. Double-click `mpv.exe` to open the MPV player. The player should open and stay open with a black screen. This indicates you have installed the proper build of MPV Player for your system.
+### 6. Double-click `mpv.exe` to open the MPV player. The player should open and stay open with a black screen. This indicates you have installed the proper build of MPV Player for your system.
 <br />
 
-### 6. Access the following filepath then place the UltraMPV `mpv.conf` file inside the `mpv` folder on your system to overwrite your current `mpv.conf` file, if one exists:
+### 7. Access the following filepath then place the UltraMPV `mpv.conf` file inside the `mpv` folder on your system to overwrite your current `mpv.conf` file, if one exists:
 <br />
 
 ```Bash
 %APPDATA%\mpv\
 ```
 
+### 8. Access the following filepath then place the UltraMPV `shaders` folder inside the `mpv` folder on your system to replace your current `shaders` folder, if one exists:
 <br />
+
+```Bash
+%APPDATA%\mpv\
+```
+
+### 9. Open a video file with MPV Player and press `~` to open the terminal then make sure there are no errors loading the UltraMPV configuration.
+<br />
+<br />
+
+## DONE!
 <br />
 
 [MPVrepo]: https://github.com/mpv-player/mpv
