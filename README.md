@@ -1,4 +1,4 @@
-# UltraMPV v1.0.31
+# UltraMPV v1.0.32
 <br />
 
 ## The BEST realistic 4K video playback experience in the world!
@@ -86,7 +86,7 @@
 ### Hardware Demand: This config is extremely demanding. `FSRCNNX_x2_16-0-4-1` and `KrigBilateral` run heavily on the GPU. If you experience dropped frames you may need to downscale `FSRCNNX` to the `8-0-4-1` version. Find out if there are dropped frames by pressing `Shift + i` then `2`, and check "Frame Timings". If the "Estimated" and "Measured" times are consistent and below your refresh rate interval (e.g., <16.6ms for 60Hz), you're golden.
 <br />
 
-### Dither Check: This config is setup with `dither-depth=10` so that videos display in 10-bit colour. Ensure your Windows/GPU display settings are correctly set to 10-bit colour, otherwise, this can cause issues on 8-bit monitors. If your monitor is 8-bit; you must change this to 8 (`dither-depth=8`).
+### Dither Check: This config is setup with `dither-depth=auto` so that it automatically decides between 8-bit and 10-bit colour depending on your display. You may also hardcode this to either `dither-depth=10` to force 10-bit colour or `dither-depth=8` to force 8-bit colour. If you decide to hardcode this value to `dither-depth=10` to force 10-bit colour, then ensure your Windows/GPU display settings are correctly set to 10-bit colour, otherwise, this can cause issues on 8-bit monitors.
 <br />
 
 ### Dynamic Range: Check your NVIDIA Control Panel. Ensure "Output Dynamic Range" is set to Full (0-255), not Limited. If it's on Limited, even the best MPV config will look washed out.
