@@ -1,14 +1,11 @@
-# UltraMPV v1.0.14
+# UltraMPV v1.0.31
 <br />
 
 ## The BEST realistic 4K video playback experience in the world!
 ###### Carefully follow all steps in this guide to completely transform your MPV Player so it can rival the highest quality video players in existence. (Optimized for Nvidia)
-<br />
 
-### 1. Download and install MPV Player using their [OFFICIAL GitHub repository][MPVrepo] or [SourceForge page][SourceForge].
+### 1. Download and install MPV Player using their [OFFICIAL GitHub repository][MPVrepo] or [SourceForge page][SourceForge]. For your convenience, there's a copy of the Windows MPV Player Bootstrapper (Updated 13/08/2026) in the UltraMPV repository's `\Archive` folder. You can use this [Direct Link][Bootstrapper] to download a new copy of the MPV Player Bootstrapper that's found in the UltraMPV repository's `\Archive` folder.
 <br />
-
-###### Use the following instructions to download MPV Player from [SourceForge][SourceForge] and install onto Windows 11. Alternatively, there's a copy of the Windows MPV Player Bootstrapper (Updated 22/03/2026) in the UltraMPV repository's `\Archive` folder.
 
 ### 2. After downloading the Windows MPV Player installer from SourceForge, search your downloads for a file called `bootstrapper.zip` and extract its contents into the folder you want MPV Player program files to be stored.
 <br />
@@ -16,32 +13,35 @@
 ### 3. Open the extracted `bootstrapper` folder, `right-click` the `updater.bat` file and run as administrator.
 <br />
 
-### 4. In the terminal that opens, enter `Y` to proceed with the installation, enter `1` to check for updates weekly, enter `2` to download the `x86_64-v3` version of MPV Player, and let the rest of the installation run with the default options selected. This "v3" build is optimized for modern CPUs (typically those released after 2015) and offers better performance by utilizing newer instruction sets like AVX2.
+### 4. In the terminal that opens, enter `Y` to proceed with the installation, enter `1` to check for updates weekly, enter `2` to download the `x86_64-v3` version of MPV Player. This "v3" build is optimized for modern CPUs (typically those released after 2015) and offers better performance by utilizing newer instruction sets like AVX2. Then enter `Y` to delete archives after extract.
 <br />
 
-### 5. Open the `installer` folder that `updater.bat` downloaded into your extracted `bootstrapper` folder. Inside the `installer` folder, `right-click` the `mpv-install.bat` file to install MPV Player on your system. 
+### 5. This step is completely optional, it allows you to drag links for web hosted videos or live streams directly onto your opened MPV player (or use the command line `mpv "https://youtube.com/YourVideoLink"`, for example) to play your web hosted videos or live streams (YouTube, Kick, Twitch, etc...) streamed directly through MPV players so that the high quality premium shaders are applied to your web hosted videos in real time. To enable the functionality to play web hosted videos or live streams through MPV Player, enter `Y` to proceed with downloading `ytdlp` and then enter `1` to make sure it downloads `ytdlp` and do not download the obsolete `youtube-dl`.
+<br />
+
+### 6. Open the `installer` folder that `updater.bat` downloaded into your extracted `bootstrapper` folder. Inside the `installer` folder, `right-click` the `mpv-install.bat` file and run as administrator to install MPV Player on your system. 
 
 ###### NOTE: You will have to re-run this `mpv-install.bat` file whenever you move or rename your extracted `bootstrapper` folder. MPV Player is a "portable" application, so Windows does not automatically track its location like it would for a standard program with a traditional installer.
 <br />
 
-### 6. Double-click `mpv.exe` to open the MPV player. The player should open and stay open with a black screen. This indicates you have installed the proper build of MPV Player for your system.
+### 7. Double-click `mpv.exe` to open the MPV player. The player should open and stay open with a black screen. This indicates you have installed the proper build of MPV Player for your system.
 <br />
 
-### 7. Access the following filepath then place the UltraMPV `mpv.conf` file inside the `mpv` folder on your system to overwrite your current `mpv.conf` file, if one exists:
-<br />
-
-```Bash
-%APPDATA%\mpv\
-```
-
-### 8. Access the following filepath then place the UltraMPV `shaders` folder inside the `mpv` folder on your system to replace your current `shaders` folder, if one exists:
+### 8. Access the following filepath then place the UltraMPV `mpv.conf` file inside the `mpv` folder on your system to overwrite your current `mpv.conf` file, if one exists:
 <br />
 
 ```Bash
 %APPDATA%\mpv\
 ```
 
-### 9. Open a video file with MPV Player and press `~` to open the terminal then make sure there are no errors loading the UltraMPV configuration.
+### 9. Access the following filepath then place the UltraMPV `shaders` folder inside the `mpv` folder on your system to replace your current `shaders` folder, if one exists:
+<br />
+
+```Bash
+%APPDATA%\mpv\
+```
+
+### 10. Open a video file with MPV Player and press the backtick key (`` ` ``) to open the terminal then make sure there are no errors loading the UltraMPV configuration.
 <br />
 <br />
 
@@ -58,7 +58,6 @@
 <br />
 
 ## Features:
-<br />
 
 ### - The "Heavy Lifters" (Shaders): By using `FSRCNNX` (Luma upscaling), `KrigBilateral` (Chroma scaling), and `SSimDownscaler` (Perceptual downscaling), this configuration is using some of the most accurate algorithms available for realistic video.
 <br />
@@ -99,7 +98,21 @@
 
 # You're all set!
 <br />
+<br />
+
+## License
+
+### This project is licensed under the [MIT License](LICENSE). Third-party shaders and bundled binaries are subject to their own respective upstream licenses, detailed in the [THIRD-PARTY-LICENSES](THIRD-PARTY-LICENSES.md) file.
+<br />
+
+## Third-Party Shaders & Utilities Download Links
+
+*   **FSRCNNX Shaders:** https://github.com/igv/FSRCNN-TensorFlow/releases/download/1.1/FSRCNNX_x2_16-0-4-1.glsl
+*   **KrigBilateral Shaders:** https://gist.github.com/igv/a015fc885d5c22e6891820ad89555637
+*   **SSimDownscaler Shaders:** https://gist.github.com/igv/36508af3ffc84410fe39761d6969be10
+*   **MPV Player:** https://sourceforge.net/projects/mpv-player-windows/files/bootstrapper.zip/download
 
 
 [MPVrepo]: https://github.com/mpv-player/mpv
 [SourceForge]: https://sourceforge.net/projects/mpv-player-windows/
+[Bootstrapper]: https://sourceforge.net/projects/mpv-player-windows/files/bootstrapper.zip/download
