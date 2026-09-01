@@ -1,4 +1,4 @@
-# UltraMPV v1.0.33
+# UltraMPV v1.0.67
 <br />
 
 ## The BEST realistic 4K video playback experience in the world!
@@ -59,25 +59,15 @@
 
 ## Features:
 
-### - The "Heavy Lifters" (Shaders): By using `FSRCNNX` (Luma upscaling), `KrigBilateral` (Chroma scaling), and `SSimDownscaler` (Perceptual downscaling), this configuration is using some of the most accurate algorithms available for realistic video.
-<br />
-
-### - Realistic Motion: The combination of `video-sync=display-resample` and `interpolation=yes` with `tscale=oversample` provides the most natural motion possible on standard 60Hz displays by eliminating "judder" without creating the "soap opera effect" of cheaper video players.
-<br />
-
-### - `FSRCNNX`: Widely considered one of the best for non-animated, realistic content because it uses neural networks to reconstruct detail without the "artificial" look of basic sharpeners.
-<br />
-
-### - `KrigBilateral`: Uses luma (brightness) information to intelligently upscale chroma (colour), significantly reducing "colour bleeding" on sharp edges.
-<br />
-
-### - Hardware Efficiency: Switching to `d3d11va` ensures a direct path to your GPU, which is critical for maintaining `0` dropped frames in high-bitrate 4K.
-<br />
-
-### - Context-Aware Processing: Auto-profiles intelligently switch between upscaling (`FSRCNNX`), downscaling (`SSimDownscaler`), and native 4K modes. This prevents your GPU from wasting cycles on shaders that would actually degrade a native 4K signal.
-<br />
-
-### - Banding Prevention: The combination of `deband-grain=5` and `dither=fruit` ensures that even the most difficult dark scenes (like space or underwater shots) look smooth and natural.
+* ### <ins>Context-Aware Processing:</ins> Auto-profiles evaluate media resolution against active monitor geometry in real time. They instantly isolate heavy shader passes so your GPU never wastes performance cycles on native 4K signals.
+* ### <ins>Reference-Grade Motion Scaling:</ins> The unified combination of `video-sync=display-resample`, `interpolation=yes`, and `tscale=mitchell` delivers mathematically perfect frame blending. It completely eliminates 24fps "judder" on fixed 60Hz panels without causing artificial soap-opera artifacts.
+* ### <ins>Fidelity-First Debanding:</ins> A dynamic dual-state deband pipeline protects native 4K film grain and micro-textures. It reserves aggressive artifact filtering exclusively for sub-4K compression and streaming web sources.
+* ### <ins>`FSRCNNX` Neural Upscaling:</ins> Employs deep-learning-trained neural networks to reconstruct fine edge details and textures on sub-4K content without introducing the artificial halo or ringing artifacts of generic video sharpeners.
+* ### <ins>`KrigBilateral` Chroma Reconstruction:</ins> Uses localized luma (brightness) contrast information to intelligently calculate and reconstruct color channels. This significantly minimizes edge color bleeding and enhances realistic color separation.
+* ### <ins>`SSimDownscaler` Perceptual Reduction:</ins> Uses structure-similarity algorithms to map native 4K assets down onto lower-resolution displays (like 1080p or 1440p monitors) while preserving fine specular highlights and image sharpness.
+* ### <ins>Zero-Copy Hardware Decoding:</ins> Utilizing `d3d11va` creates a direct, zero-overhead pipeline straight to your GPU's specialized video decode block. This ensures absolute stability and zero dropped frames on massive 4K UHD Blu-ray remuxes.
+* ### <ins>Temporal Dithering Precision:</ins> Employs high-quality `fruit` dithering matrices. This prevents gradient blocking and banding artifacts in difficult, shadow-heavy scenes while maintaining accurate 8-bit or 10-bit visual depth.
+* ### <ins>Native 60fps Frame Bypass:</ins> Automatically detects and bypasses the motion interpolation engine when native 60fps media is opened. This reduces system overhead and eliminates redundant processing artifacts on high-framerate sports or action content.
 <br />
 <br />
 
@@ -111,7 +101,11 @@
 *   **KrigBilateral Shaders:** https://gist.github.com/igv/a015fc885d5c22e6891820ad89555637
 *   **SSimDownscaler Shaders:** https://gist.github.com/igv/36508af3ffc84410fe39761d6969be10
 *   **MPV Player:** https://sourceforge.net/projects/mpv-player-windows/files/bootstrapper.zip/download
+<br />
 
+---
+
+💡 *If you find this project useful, reach out via [Upwork](https://www.upwork.com/freelancers/~01a2b86360ffeb733e)/[Contra](https://contra.com/Superklok) to hire Superklok Labs today!*
 
 [MPVrepo]: https://github.com/mpv-player/mpv
 [SourceForge]: https://sourceforge.net/projects/mpv-player-windows/
