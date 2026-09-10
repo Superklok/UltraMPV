@@ -1,4 +1,4 @@
-# UltraMPV v1.0.93
+# UltraMPV v1.6.41
 <br />
 
 ## The BEST realistic 4K video playback experience in the world!
@@ -34,15 +34,22 @@
 ```
 <br />
 
-### 9. Access the following filepath then place the UltraMPV `shaders` folder inside the `mpv` folder on your system to replace your current `shaders` folder, if one exists:
+### 9. Go to the following filepath then place the UltraMPV `input.conf` file inside the `mpv` folder on your system to overwrite your current `input.conf` file, if one exists:
 
 ```Bash
 %APPDATA%\mpv\
 ```
-> ⚠️ **NOTE:** The `shaders` folder should contain `FSRCNNX_x2_16-0-4-1.glsl`, `KrigBilateral.glsl`, and `SSimDownscaler.glsl`.
 <br />
 
-### 10. Open a video file with MPV Player and press the backtick key (`` ` ``) to open the terminal then make sure there are no errors loading the UltraMPV configuration.
+### 10. Browse to the following filepath then place the UltraMPV `shaders` folder inside the `mpv` folder on your system to replace your current `shaders` folder, if one exists:
+
+```Bash
+%APPDATA%\mpv\
+```
+> ⚠️ **NOTE:** The `shaders` folder should contain `SSimSuperRes.glsl`, `CfL_Prediction.glsl`, `adaptive-sharpen.glsl`, and `SSimDownscaler.glsl`.
+<br />
+
+### 11. Open a video file with MPV Player and press the backtick key (`` ` ``) to open the terminal then make sure there are no errors loading the UltraMPV configuration.
 <br />
 <br />
 
@@ -55,62 +62,101 @@
 ### In the Windows/Nvidia environment, this is effectively the WORLD'S BEST configuration for a fixed 60Hz 4K monitor. It leverages a sophisticated balance of high-performance internal settings and industry-standard external shaders. This configuration is essentially the gold standard for "realistic" 4K playback in 2026.
 <br />
 
-### It's superior to standard high-quality templates because it intelligently handles Chroma reconstruction (using `KrigBilateral`) and uses Dynamic Profile Logic to ensure the GPU doesn't waste resources on unnecessary shaders when playing native 4K content.
+### It's superior to standard high-quality templates because it intelligently handles Chroma reconstruction (using `CfL_Prediction`) and uses Dynamic Profile Logic to ensure the GPU doesn't waste resources on unnecessary shaders when playing native 4K content.
 <br />
 
 ## Features
 
-* ### <ins>Context-Aware Processing Architecture:</ins> 
-  Auto-profiles evaluate media resolution against active monitor geometry in real time. They instantly isolate or strip away heavy shader passes using automated pipeline flushes (`glsl-shaders-clr`), ensuring your GPU never leaves previous shaders jammed in memory or wastes performance cycles on native 4K signals.
+* ### <ins>Cascade Processing Architecture:</ins> 
+  Utilizes an efficient, pre-appended cascade design (`glsl-shaders`) that initializes core shader blocks on startup rather than forcing resource-heavy compilation steps mid-stream. Lower-resolution pipelines step down seamlessly via explicit cache resets (`glsl-shaders-clr`) only when entering 4K spaces, completely neutralizing thread stalls and window freezing when transitioning between video sizes.
 
 * ### <ins>Ghosting-Free Motion Cadence:</ins> 
-  The synchronized combination of `video-sync=display-resample` and `tscale=oversample` provides pixel-perfect frame-step matching. Unlike cubic blending filters (like Mitchell) which cause temporal blur and ghosting during camera pans, this pipeline preserves 100% texture and skin-pore sharpness during fast motion while completely eliminating 24p judder on fixed 60Hz panels.
+  The synchronized pairing of `video-sync=display-resample` and `tscale=oversample` provides precise frame-step matching. By matching frame delivery to display timings without using artificial frame-blending or temporal interpolation filters, this pipeline preserves 100% texture and skin-pore sharpness during fast panning shots while completely eliminating 24p judder on fixed 60Hz panels.
 
-* ### <ins>`FSRCNNX_x2_16-0-4-1` Neural Super-Resolution Upscaling:</ins> 
-  Deploys a heavy, 16-filter convolutional neural network natively inside the Vulkan pipeline. Unlike artwork-trained models that create an artificial "oil painting" look, FSRCNNX uses advanced statistical super-resolution to accurately reconstruct high-frequency data. It preserves natural human features—including skin pore structures, fine wrinkles, clothing textures, and organic film grain—delivering lifelike clarity to sub-4K content without introducing edge halos, ringing, or plastic smoothing artifacts.
+* ### <ins>`SSimSuperRes` Structural Super-Resolution:</ins> 
+  Bypasses artwork-trained, edge-doubling neural models (like FSRCNNX or NNEDI3) which cause an artificial "oil painting" or plastic look on human subjects. Instead, `SSimSuperRes.glsl` works via downscaling feedback loops, continually comparing the scaled frame against the source data to preserve authentic textural realism, skin pores, fine wrinkles, and background film grain on sub-4K masters.
 
-* ### <ins>Dynamic Dual-State Debanding:</ins> 
-  A reactive anti-banding system protects your media. It defaults to a non-destructive, ultra-light pass (`iterations=1`) to keep native 4K film grain untouched, but automatically scales up to an aggressive cleanup pass (`iterations=4`, `threshold=48`) exclusively when low-bitrate, heavily compressed sub-4K streaming sources are detected.
+* ### <ins>Codec-Aware Bitrate Debanding:</ins> 
+  A reactive anti-banding system segments files by inspecting raw bit-budgets per compression standard (H264 >= 15M, HEVC >= 8M, AV1 >= 6M, VP9 >= 8M). It forces a non-destructive reference pass (`iterations=1`) on high-fidelity files to protect original grain maps, but automatically engages an aggressive pass (`iterations=3`, `threshold=45`) when compressed, low-bitrate streams are detected.
 
 * ### <ins>Spatial Error-Diffusion Dithering:</ins> 
-  Replaces standard ordered dithering matrices with advanced spatial distribution algorithms (`dither=error-diffusion` via Atkinson). This math engine eliminates macro-gradients and color banding in difficult, shadow-heavy scenes, ensuring smooth, filmic transitions across both 8-bit and 10-bit panels.
+  Replaces basic, patterned ordered dithering arrays with advanced spatial distribution algorithms (`dither=error-diffusion`). This math engine pushes rounding errors to neighboring pixels in a fluid, non-repeating pattern, completely eliminating macro-gradients and color banding across uniform areas like smooth skin tones and uniform backgrounds.
 
-* ### <ins>Vulkan Zero-Copy Hardware Decoding:</ins> 
-  Migrates the entire playback stack to modern Vulkan (`gpu-api=vulkan` and `gpu-context=winvk`). This creates a direct, low-overhead hardware decoding handshake with your GPU, ensuring flawless stability and frame-perfect presentation timing on massive 4K UHD Blu-ray remux files.
+* ### <ins>Unified Vulkan Zero-Copy Rendering:</ins> 
+  Migrates the playback pipeline natively to high-performance Vulkan (`gpu-api=vulkan` and `gpu-context=winvk`). This anchors rendering directly inside the Windows graphics swapchain, providing low-overhead decoding, stable frame rendering, and clean presentation timing on massive 4K UHD masters.
 
-* ### <ins>`KrigBilateral` Chroma Reconstruction:</ins> 
-  Contains a high-accuracy, luma-guided bilateral upscaling algorithm that uses the video's high-resolution brightness channel to perfectly reconstruct missing color data. By mapping chroma boundaries directly to localized luminance detail, it completely eliminates color bleeding, tightens color accuracy, and provides razor-sharp, hyper-realistic color boundaries around human figures, skin tones, and complex real-world environments.
+* ### <ins>`CfL_Prediction` Chroma Reconstruction:</ins> 
+  Deploys a high-accuracy, luma-guided prediction model (`CfL_Prediction.glsl`) that uses the video's high-resolution brightness channel to reconstruct missing color information. Mapping color boundaries directly to luminance detail eliminates color bleeding and tightens color accuracy around eyes, lips, and fast-moving human silhouettes.
 
 * ### <ins>`SSimDownscaler` Perceptual Reduction:</ins> 
-  Utilizes structure-similarity models to downscale 4K assets onto lower-resolution displays (like 1440p or 1080p monitors) when necessary. The algorithm focuses on preserving localized contrast and fine specular highlights, rendering a sharp downscaled image that holds true to the master file.
+  Employs structure-similarity models (`SSimDownscaler.glsl`) to downscale 4K assets onto lower-resolution displays (like 1440p or 1080p monitors). The algorithm preserves localized contrast and fine specular highlights, rendering a downscaled image that holds true to the master file.
 
-* ### <ins>Native 60fps Frame Bypass:</ins> 
-  Tracks incoming media framerates dynamically. It instantly untethers the interpolation engine (`interpolation=no`) when native 60fps media is opened, preventing processing artifacts and keeping system overhead low on sports, gameplay, or high-framerate action content.
+* ### <ins>Purist Adaptive Edge Sharpening:</ins> 
+  Integrates a high-precision `adaptive-sharpen.glsl` pass inside the native 4K and downscaling loops to counteract physical display anti-aliasing and lens softening. By analyzing localized spatial contrast, it sharpens fine details—like hair strands and pores—without introducing edge halos or boosting image noise.
+
+* ### <ins>Native 60fps Performance Bypass:</ins> 
+  Tracks incoming media framerates dynamically. It instantly shuts down the oversample engine (`interpolation=no`) when native 60fps media is opened, preventing processing artifacts and keeping system overhead low on sports, gameplay, or high-framerate action content.
+
+* ### <ins>Silicon-Level H.264 Driver Failsafe:</ins> 
+  Dynamically intercepts H.264 video streams on initialization and routes them away from broken NVIDIA Vulkan driver pathways, safely executing them via native hardware CUDA channels (`hwdec=nvdec`). This completely prevents unwatchable macroblock corruption while maintaining hardware processing stability.
+<br />
+<br />
+
+## Custom Controls & Navigation
+
+UltraMPV features an optimized, high-precision keyboard binding matrix (`input.conf`) specifically designed for frame-accurate tracking and analysis of high-motion 4K 60fps real human video footage and live streams.
+
+### ⏱️ Micro-Seeking (Precision Navigation)
+Standard media players rely on "fuzzy" 5-to-10 second seeking loops that drop you onto variable keyframes. UltraMPV enforces hardware-level exact millisecond alignment.
+* **`→` (Right Arrow):** Advances the video by exactly **1 second**.
+* **`←` (Left Arrow):** Reverses the video by exactly **1 second**.
+
+### ⏩ Standard Seeking Fallbacks
+When you need to cross larger timeline distances quickly without losing precision, use the modifier layer.
+* **`Shift + →`:** Advances the video by exactly **5 seconds**.
+* **`Shift + ←`:** Reverses the video by exactly **5 seconds**.
+
+### 🎞️ Frame-Perfect Analysis
+For deep analysis of movement, capturing microexpressions, selecting the perfect video thumbnail, or observing fast-action changes, step through individual video frames with zero performance stutter.
+* **`↑` (Up Arrow):** Advances the pipeline forward by exactly **1 frame**.
+* **`↓` (Down Arrow):** Steps the pipeline backward by exactly **1 frame**.
 <br />
 <br />
 
 ## PLEASE NOTE!
 
-### Hardware Demand & Performance Fallback:
-This configuration is exceptionally demanding. Combining `FSRCNNX_x2_16-0-4-1` and `KrigBilateral` via the Vulkan compute pipeline places a heavy load on your graphics card. If your system encounters dropped frames, you can drop your upscaler down to `FSRCNNX_x2_8-0-4-1.glsl` to reclaim massive GPU performance overhead. 
+### Hardware Optimization & Performance Metrics:
+This configuration is specifically engineered for high-performance setups utilizing desktop NVIDIA graphics hardware (such as the RTX 5070 Ti). Combining `SSimSuperRes.glsl` and `CfL_Prediction.glsl` via a continuous Vulkan cascade pipeline, alongside `adaptive-sharpen.glsl` in 4K spaces, places a heavy workload on the GPU compute planes. 
 
-To audit your real-time performance, press `Shift + i` during playback, then hit `2` to view **Frame Timings**. If your "Estimated" and "Measured" compute times are stable and remain safely below your display's refresh interval (for example, `< 16.6ms` for a 60Hz monitor or `< 6.9ms` for a 144Hz panel), your hardware is performing flawlessly.
-<br />
+To audit your real-time performance, press `Shift + I` during playback, then hit `2` to view your **Frame Timings**. To ensure smooth, stutter-free playback, your "Estimated" and "Measured" compute times must remain safely below your monitor's physical refresh interval (for example, `< 16.6ms` for a 60Hz panel or `< 6.9ms` for a 144Hz panel). If you experience dropped frames, ensure your graphics card is not entering into a power-saving throttling mode.
 
-### Advanced Error-Diffusion Dithering:
-This setup relies on advanced spatial distribution mapping (`dither=error-diffusion` via Atkinson). By default, `dither-depth=auto` allows mpv to automatically negotiate the optimal 8-bit or 10-bit deep-color state directly with your monitor's display driver. 
+### Automated Spatial Dithering Handshake:
+This setup relies on reference-grade spatial distribution mapping (`dither=error-diffusion`). By default, the configuration uses `dither-depth=auto`, which instructs `mpv` to dynamically query the active Windows DXGI graphics swapchain on the fly. The engine will automatically deploy a 10-bit or 8-bit error-diffusion shader pattern to match the physical capabilities of your active monitor. 
 
-If you choose to hardcode this setting by changing it to `dither-depth=10`, you **must** verify that your Windows Display Settings or Nvidia Control Panel is actively transmitting a true 10-bit color signal. Forcing a 10-bit dithering pattern onto an active 8-bit output path will create visual artifacts and micro-gradients.
-<br />
+If you choose to hardcode this setting (e.g., `dither-depth=10`), you **must** verify that your Windows Display Settings or NVIDIA Control Panel is actively transmitting a true 10-bit color container signal to that monitor. Forcing a 10-bit rendering pipeline into a monitor running an active 8-bit connection will create color banding and micro-gradients across uniform human skin tones.
 
-### NVIDIA Dynamic Range Handshake:
-Open your **NVIDIA Control Panel** and navigate to *Change Resolution*. Scroll down and guarantee that your **Output Dynamic Range** is explicitly toggled to **Full (0-255)** rather than *Limited (16-235)*. Leaving this setting on Limited forces the GPU to crush black levels and clip highlights, making even the most advanced configuration look flat and washed out.
-<br />
+### NVIDIA Full Dynamic Range Configuration:
+Open your **NVIDIA Control Panel** and navigate to *Change Resolution*. Scroll down and guarantee that your **Output Dynamic Range** is explicitly toggled to **Full (0-255)** rather than *Limited (16-235)*. Leaving this driver setting on Limited forces the GPU to compress video data packets, crushing deep shadow detail and clipping specular highlights, which will make your advanced configuration look flat and washed out.
 
-### Display Capabilities & SDR Tone-Mapping:
-This profile is optimized out of the box to pass high-dynamic-range metadata directly to the modern Windows DXGI HDR swapchain using `target-colorspace-hint=yes`. 
+### Display Context Toggling & SDR Tone-Mapping:
+This profile is highly optimized out of the box to pass raw high-dynamic-range metadata directly to the modern Windows DXGI HDR swapchain using `target-colorspace-hint=yes`. 
 
-However, if you are viewing HDR content on a standard, non-HDR display (SDR monitor), you should manually uncomment the target peak variable in your main configuration block by removing the leading hash mark so that it reads `target-peak=300`. For peak realism, adjust that numerical value to match the exact, measured peak luminance nits specification of your specific panel.
+However, if you are viewing HDR content on a standard dynamic range display (SDR monitor), you should open `mpv.conf` and manually uncomment the target peak variable in your main configuration block by removing the leading hash mark so that it reads `target-peak=300`. For absolute reference accuracy, adjust that numerical value to match the exact, measured peak luminance nits specification of your specific panel model.
+
+### Required Shaders Folder Layout:
+For this build to initialize without fatal errors, you must download the necessary assets and place them directly in the root of your local configuration directory. Do not use nested subfolders. Ensure your directory structure is organized precisely as follows:
+
+```text
+📁 %APPDATA%\mpv\
+  ├── 📄 mpv.conf
+  ├── 📄 input.conf
+  └── 📁 shaders
+        ├── 📄 CfL_Prediction.glsl
+        ├── 📄 SSimSuperRes.glsl
+        ├── 📄 SSimDownscaler.glsl
+        └── 📄 adaptive-sharpen.glsl
+```
+
 <br />
 <br />
 
@@ -125,8 +171,9 @@ However, if you are viewing HDR content on a standard, non-HDR display (SDR moni
 
 ## Third-Party Shaders & Utilities Download Links
 
-*   **FSRCNNX Shaders:** https://github.com/igv/FSRCNN-TensorFlow/releases/download/1.1/FSRCNNX_x2_16-0-4-1.glsl
-*   **KrigBilateral Shaders:** https://gist.github.com/igv/a015fc885d5c22e6891820ad89555637
+*   **SSimSuperRes Shaders:** https://gist.github.com/igv/2364ffa6e81540f29cb7ab4c9bc05b6b
+*   **CfL_Prediction Shaders:** https://github.com/Artoriuz/glsl-chroma-from-luma-prediction/blob/main/CfL_Prediction.glsl
+*   **adaptive-sharpen Shaders:** https://github.com/libretro/glsl-shaders/blob/master/sharpen/shaders/adaptive-sharpen.glsl
 *   **SSimDownscaler Shaders:** https://gist.github.com/igv/36508af3ffc84410fe39761d6969be10
 *   **MPV Player:** https://sourceforge.net/projects/mpv-player-windows/files/bootstrapper.zip/download
 <br />

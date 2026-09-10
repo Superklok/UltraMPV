@@ -4,9 +4,10 @@ The UltraMPV configuration ecosystem contains third-party open-source components
 
 ### Third-Party Shaders & Utilities
 
-* **FSRCNNX Shaders (`FSRCNNX_x2_16-0-4-1.glsl`):** Developed by the open-source community (igv / original research by Dong et al.) and distributed under the MIT License / respective open-source licensing models for advanced neural-network-based super-resolution scaling.
-* **KrigBilateral Shaders (`KrigBilateral.glsl`):** A high-accuracy luma-guided chroma upscaling algorithm developed by the community (igv) and distributed under its respective open-source community licenses.
-* **SSimDownscaler Shaders (`SSimDownscaler.glsl`):** Developed by the open-source community (igv) and distributed under the MIT License / respective open-source licensing models for structural-similarity perceptual downscaling.
+* **SSimSuperRes Shader (`SSimSuperRes.glsl`):** Developed by the open-source community (Shiandow / sharper) and distributed under respective open-source licensing models for structural-similarity downscaling-feedback neural upscaling.
+* **CfL_Prediction Shader (`CfL_Prediction.glsl`):** A high-accuracy luma-guided chroma prediction and reconstruction algorithm developed by the open-source community (thep00oon) and distributed under its respective open-source community licenses.
+* **Adaptive-Sharpen Shader (`adaptive-sharpen.glsl`):** A high-precision spatial edge-sharpening model developed by the open-source community (Bacondither) and distributed under the MIT License for adaptive image frequency enhancement.
+* **SSimDownscaler Shader (`SSimDownscaler.glsl`):** Developed by the open-source community (igv) and distributed under the MIT License / respective open-source licensing models for structural-similarity perceptual downscaling.
 * **MPV Player Core & Binaries:** Governed by the GNU General Public License (GPLv2+) or Lesser GNU General Public License (LGPLv2.1+) as outlined by the official MPV Player project contributors.
 
 ### User Modification & Distribution Rights
