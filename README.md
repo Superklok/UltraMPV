@@ -1,71 +1,183 @@
-# UltraMPV v1.6.41
+# 💥 UltraMPV v2.0.0 💥
+
 <br />
 
 ## The BEST realistic 4K video playback experience in the world!
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="Promo/UltraMPV.png" />
+</div>
+
+<br />
+
+## 🏗️ INSTALLATION GUIDE
 ###### Carefully follow all steps in this guide to completely transform your MPV Player so it can rival the highest quality video players in existence. (Optimized for Nvidia)
 
-### 1. Download and install MPV Player using their [OFFICIAL GitHub repository][MPVrepo] or [SourceForge page][SourceForge]. For your convenience, there's a copy of the Windows MPV Player Bootstrapper (Updated 13/08/2026) in the UltraMPV repository's `\Archive` folder. You can use this [Direct Link][Bootstrapper] to download a new copy of the MPV Player Bootstrapper that's found in the UltraMPV repository's `\Archive` folder.
 <br />
 
-### 2. After downloading the Windows MPV Player installer from SourceForge, search your downloads for a file called `bootstrapper.zip` and extract its contents into the folder you want MPV Player program files to be stored.
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="Promo/cmd.png" style="margin-right: 15px; width: 40%;"/>
+  <span>➡️</span>
+  <img src="Promo/prompt.png" style="margin-left: 15px; width: 40%;"/>
+</div>
+
+### 1. Browse to the location on your PC where you would like the 100% self-contained fully portable UltraMPV installation to live. Open a Command Prompt inside that folder by clicking in the **Address Bar** at the top, typing `cmd`, and pressing Enter. This will open a Command Prompt terminal directly inside your desired installation folder.
+
 <br />
 
-### 3. Open the extracted `bootstrapper` folder, `right-click` the `updater.bat` file and run as administrator.
-<br />
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="Promo/terminal.png" style="margin-right: 15px; width: 40%;"/>
+  <span>➡️</span>
+  <img src="Promo/folder.png" style="margin-left: 15px; width: 40%;"/>
+</div>
 
-### 4. In the terminal that opens, enter `Y` to proceed with the installation, enter `1` to check for updates weekly, enter `2` to download the `x86_64-v3` version of MPV Player. This "v3" build is optimized for modern CPUs (typically those released after 2015) and offers better performance by utilizing newer instruction sets like AVX2. Then enter `Y` to delete archives after extract.
-<br />
+### 2. Download UltraMPV from the [OFFICIAL GitHub repository](https://github.com/Superklok/UltraMPV) by entering the following code into the Command Prompt terminal to download the latest version of UltraMPV:
 
-### 5. This step is completely optional, it allows you to drag links for web hosted videos or live streams directly onto your opened MPV player (or use the command line `mpv "https://youtube.com/YourVideoLink"`, for example) to play your web hosted videos or live streams (YouTube, Kick, Twitch, etc...) streamed directly through MPV player so that the high quality premium shaders are applied to your web hosted videos in real time. To enable the functionality to play web hosted videos or live streams through MPV Player, enter `Y` to proceed with downloading `ytdlp` and then enter `1` to make sure it downloads `ytdlp` and do not download the obsolete `youtube-dl`.
-<br />
-
-### 6. Open the `installer` folder that `updater.bat` downloaded into your extracted `bootstrapper` folder. Inside the `installer` folder, `right-click` the `mpv-install.bat` file and run as administrator to install MPV Player on your system. 
-
-> ⚠️ **NOTE:** You will have to re-run this `mpv-install.bat` file whenever you move or rename your extracted `bootstrapper` folder. MPV Player is a "portable" application, so Windows does not automatically track its location like it would for a standard program with a traditional installer.
-<br />
-
-### 7. Double-click `mpv.exe` to open the MPV player. The player should open and stay open with a black screen. This indicates you have installed the proper build of MPV Player for your system.
-<br />
-
-### 8. Access the following filepath then place the UltraMPV `mpv.conf` file inside the `mpv` folder on your system to overwrite your current `mpv.conf` file, if one exists:
-
-```Bash
-%APPDATA%\mpv\
+```shell
+gh repo clone Superklok/UltraMPV
 ```
+
 <br />
 
-### 9. Go to the following filepath then place the UltraMPV `input.conf` file inside the `mpv` folder on your system to overwrite your current `input.conf` file, if one exists:
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="Promo/updater.png" style="margin-right: 15px; width: 40%;"/>
+  <span>➡️</span>
+  <img src="Promo/updating.png" style="margin-left: 15px; width: 40%;"/>
+</div>
 
-```Bash
-%APPDATA%\mpv\
-```
+### 3. Once the GitHub command is finished running, an `UltraMPV\` folder will appear in your installation directory. Open the `UltraMPV\UltraMPV` folder, right-click the fully automated `ultrampv-updater.bat` file, and run as administrator to run the UltraMPV installer/updater.
+
 <br />
 
-### 10. Browse to the following filepath then place the UltraMPV `shaders` folder inside the `mpv` folder on your system to replace your current `shaders` folder, if one exists:
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="Promo/updated.png" style="margin-right: 15px; width: 40%;"/>
+  <span>➡️</span>
+  <img src="Promo/portable.png" style="margin-left: 15px; width: 40%;"/>
+</div>
 
-```Bash
-%APPDATA%\mpv\
-```
-> ⚠️ **NOTE:** The `shaders` folder should contain `SSimSuperRes.glsl`, `CfL_Prediction.glsl`, `adaptive-sharpen.glsl`, and `SSimDownscaler.glsl`.
+### 4. The terminal will automatically run through all the necessary UltraMPV installation steps, then it will close on its own once everything is correctly installed/updated.
+
 <br />
 
-### 11. Open a video file with MPV Player and press the backtick key (`` ` ``) to open the terminal then make sure there are no errors loading the UltraMPV configuration.
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="Promo/register.png" style="margin-right: 15px; width: 40%;"/>
+  <span>➡️</span>
+  <img src="Promo/registered.png" style="margin-left: 15px; width: 40%;"/>
+</div>
+
+### 5. Locate and right-click the `mpv-register.bat` file then run as administrator so that Windows adds MPV Player to the context menu when you're playing media files on your computer. 
+
+> ⚠️ **NOTE:** You must re-run `mpv-register.bat` as administrator whenever you move or rename your `UltraMPV` folder. Because UltraMPV operates as a localized, portable suite, Windows cannot automatically track its location like a traditional program utilizing a standard installer.
+
+<br />
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="Promo/mpv.png" style="margin-right: 15px; width: 40%;"/>
+  <span>➡️</span>
+  <img src="Promo/player.png" style="margin-left: 15px; width: 40%;"/>
+</div>
+
+### 6. Double-click `mpv.exe` to open the MPV player. The player should open and stay open with a black screen. This indicates you have installed the proper build of MPV Player for your system.
+
+<br />
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="Promo/log.png" />
+</div>
+
+### 7. Open a video file with MPV Player by double-clicking the video, dragging the file on top of an opened MPV Player window, or by using the `mpv` command in the terminal along with the video URL (for example, `mpv "https://www.youtube.com/watch?v=6cG6HLHDzhI"`). Once the video is playing, press the backtick key (`` ` ``) to open the MPV Player terminal log, then make sure there are no red or yellow errors during playback.
+
 <br />
 <br />
 
 ## DONE!
+
 <br />
 <br />
 
-# UltraMPV Configuration Summary
+## 🖥️ Command-Line Usage Setup Guide (Optional)
 
-### In the Windows/Nvidia environment, this is effectively the WORLD'S BEST configuration for a fixed 60Hz 4K monitor. It leverages a sophisticated balance of high-performance internal settings and industry-standard external shaders. This configuration is essentially the gold standard for "realistic" 4K playback in 2026.
+### Because UltraMPV operates as a fully sandboxed, portable suite, it does not invasively modify your Windows system environment variables or `PATH` out of the box. 
+
 <br />
 
-### It's superior to standard high-quality templates because it intelligently handles Chroma reconstruction (using `CfL_Prediction`) and uses Dynamic Profile Logic to ensure the GPU doesn't waste resources on unnecessary shaders when playing native 4K content.
+### If you wish to execute UltraMPV from any terminal window globally:
+
 <br />
 
-## Features
+<div style="display: flex; align-items: center; justify-content: left;">
+  <img src="Promo/path.png" style="margin-left: 15px; width: 40%;"/>
+</div>
+
+### 1. Copy the absolute path to your `UltraMPV/` root folder where mpv.exe resides (for example, `C:\Folder\UltraMPV\UltraMPV`).
+
+<br />
+
+<div style="display: flex; align-items: center; justify-content: left;">
+  <img src="Promo/search.png" style="margin-left: 15px; width: 40%;"/>
+</div>
+
+### 2. Press the `Windows Key`, type `environment variables`, and press `Enter`.
+
+<br />
+
+<div style="display: flex; align-items: center; justify-content: left;">
+  <img src="Promo/env.png" style="margin-left: 15px; width: 38%;"/>
+</div>
+
+### 3. Click `Environment Variables...` at the bottom right.
+
+<br />
+
+<div style="display: flex; align-items: center; justify-content: left;">
+  <img src="Promo/edit.png" style="margin-left: 15px; width: 38%;"/>
+</div>
+
+### 4. Under `User variables` (top box), select `Path` and click `Edit...`.
+
+<br />
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="Promo/new.png" style="margin-right: 15px; width: 40%;"/>
+  <span>➡️</span>
+  <img src="Promo/save.png" style="margin-left: 15px; width: 40%;"/>
+</div>
+
+### 5. Click `New`, paste your UltraMPV folder path, and click `OK` to save.
+
+<br />
+
+<div style="display: flex; align-items: center; justify-content: center;">
+  <img src="Promo/stream.png" style="margin-right: 15px; width: 40%;"/>
+  <span>➡️</span>
+  <img src="Promo/streaming.png" style="margin-left: 15px; width: 40%;"/>
+</div>
+
+### You can now open a fresh terminal anywhere on your computer and type `mpv "https://www.youtube.com/watch?v=6cG6HLHDzhI"` or `mpv video.mp4` to stream or play local files instantly!
+
+<br />
+<br />
+
+# 📺 UltraMPV Configuration Summary
+
+### Designed explicitly for the Windows and NVIDIA ecosystem, UltraMPV is effectively the WORLD'S BEST configuration for rendering real human video content on fixed 4K 60Hz displays. By engineering a sophisticated synergy between low-level internal performance parameters and high-fidelity external shaders, this project establishes the absolute gold standard for realistic, true-to-life 4K playback.
+
+<br />
+
+### Unlike static high-quality templates that drain your system resources, UltraMPV features Dynamic Profile Logic that adapts to your media in real time. It intelligently deploys advanced Chroma reconstruction via `CfL_Prediction` to mathematically recover lost color detail in sub-4K content. The moment you play native 4K video, the engine instantly flushes unnecessary upscaling shaders—preventing wasted GPU overhead and ensuring frame-perfect, zero-compromise playback.
+
+<br />
+
+## 📜 Feature List
+
+* ### <ins>Full Out-of-the-Box Portability:</ins> 
+  UltraMPV is 100% self-contained and fully portable! Configuration trees, shaders, scripts, screenshots, and video clips all live neatly within the application folder rather than littering your system's `%APPDATA%` directory.
+
+* ### <ins>Lossless Video Clipping Engine (`r` Key):</ins> 
+  Cut high-fidelity segments from your local videos instantly at native resolution using a lightning-fast background FFmpeg stream copier. No re-encoding, zero performance lag, and pixel-perfect results saved directly into `portable_config/clips/`.
+
+* ### <ins>Streamlined Automated Core Updater:</ins> 
+  The `ultrampv-updater.bat` installer has completely redesigned the UltraMPV installation process so that it automatically structures your folder trees and updates your core player binaries, decoders, and yt-dlp scrapers in the background without overwriting your custom configuration tweaks or user data.
 
 * ### <ins>Cascade Processing Architecture:</ins> 
   Utilizes an efficient, pre-appended cascade design (`glsl-shaders`) that initializes core shader blocks on startup rather than forcing resource-heavy compilation steps mid-stream. Lower-resolution pipelines step down seamlessly via explicit cache resets (`glsl-shaders-clr`) only when entering 4K spaces, completely neutralizing thread stalls and window freezing when transitioning between video sizes.
@@ -99,10 +211,11 @@
 
 * ### <ins>Silicon-Level H.264 Driver Failsafe:</ins> 
   Dynamically intercepts H.264 video streams on initialization and routes them away from broken NVIDIA Vulkan driver pathways, safely executing them via native hardware CUDA channels (`hwdec=nvdec`). This completely prevents unwatchable macroblock corruption while maintaining hardware processing stability.
+
 <br />
 <br />
 
-## Custom Controls & Navigation
+## 🛠️ Custom Controls & Navigation
 
 UltraMPV features an optimized, high-precision keyboard binding matrix (`input.conf`) specifically designed for frame-accurate tracking and analysis of high-motion 4K 60fps real human video footage and live streams.
 
@@ -118,12 +231,17 @@ When you need to cross larger timeline distances quickly without losing precisio
 
 ### 🎞️ Frame-Perfect Analysis
 For deep analysis of movement, capturing microexpressions, selecting the perfect video thumbnail, or observing fast-action changes, step through individual video frames with zero performance stutter.
-* **`↑` (Up Arrow):** Advances the pipeline forward by exactly **1 frame**.
-* **`↓` (Down Arrow):** Steps the pipeline backward by exactly **1 frame**.
+* **`↑` (Up Arrow):** Advances the video forward by exactly **1 frame**.
+* **`↓` (Down Arrow):** Steps the video backward by exactly **1 frame**.
+
+### 🎬 Lossless Video Clipping
+A simple, zero-lag hotkey toggle that handles high-fidelity local file video clip creation, saving directly to your `portable_config/clips/` folder.
+* **`r` Key:** Toggles local file clip recording **on/off**.
+
 <br />
 <br />
 
-## PLEASE NOTE!
+## ⚠️ PLEASE NOTE! ⚠️
 
 ### Hardware Optimization & Performance Metrics:
 This configuration is specifically engineered for high-performance setups utilizing desktop NVIDIA graphics hardware (such as the RTX 5070 Ti). Combining `SSimSuperRes.glsl` and `CfL_Prediction.glsl` via a continuous Vulkan cascade pipeline, alongside `adaptive-sharpen.glsl` in 4K spaces, places a heavy workload on the GPU compute planes. 
@@ -147,41 +265,52 @@ However, if you are viewing HDR content on a standard dynamic range display (SDR
 For this build to initialize without fatal errors, you must download the necessary assets and place them directly in the root of your local configuration directory. Do not use nested subfolders. Ensure your directory structure is organized precisely as follows:
 
 ```text
-📁 %APPDATA%\mpv\
-  ├── 📄 mpv.conf
-  ├── 📄 input.conf
-  └── 📁 shaders
-        ├── 📄 CfL_Prediction.glsl
-        ├── 📄 SSimSuperRes.glsl
-        ├── 📄 SSimDownscaler.glsl
-        └── 📄 adaptive-sharpen.glsl
+📁 UltraMPV/                   (Main Application Root Folder)
+  ├── 📄 mpv.exe               (Automatically Deployed Via Updater)
+  ├── 📄 ffmpeg.exe            (Automatically Deployed Via Updater)
+  ├── 📄 yt-dlp.exe            (Automatically Deployed Via Updater)
+  ├── 📄 mpv-register.bat      (Automatically Deployed Via Updater)
+  ├── 📄 mpv-unregister.bat    (Automatically Deployed Via Updater)
+  ├── 📄 ultrampv-updater.bat  (UltraMPV Core Updater Executable Wrapper)
+  ├── 📄 ultrampv-updater.ps1  (UltraMPV Background Automated API Script Engine)
+  └── 📁 portable_config/      (Enables Self-Contained Portable Mode)
+        ├── 📄 mpv.conf        (UltraMPV Configuration & Auto-Profiles)
+        ├── 📄 input.conf      (UltraMPV Custom keybindings)
+        ├── 📁 screenshots/    (Auto-Generated Pixel-Perfect PNG Renders)
+        ├── 📁 clips/          (Auto-Generated Lossless MP4 Video Clips)
+        ├── 📁 scripts/
+        │     └── 📄 clip.lua  (UltraMPV Clipping Script)
+        └── 📁 shaders/        (Advanced GLSL Real-Time Upscaling Shaders)
+              ├── 📄 CfL_Prediction.glsl
+              ├── 📄 SSimSuperRes.glsl
+              ├── 📄 SSimDownscaler.glsl
+              └── 📄 adaptive-sharpen.glsl
 ```
 
 <br />
 <br />
 
-# You're all set!
+# 🍿 You're all set!
+
 <br />
 <br />
 
-## License
+## ⚖️ License
 
 ### This project is licensed under the [MIT License](LICENSE). Third-party shaders and bundled binaries are subject to their own respective upstream licenses, detailed in the [THIRD-PARTY-LICENSES](THIRD-PARTY-LICENSES.md) file.
+
 <br />
 
-## Third-Party Shaders & Utilities Download Links
+## 📼 Third-Party Shaders & Utilities Download Links
 
 *   **SSimSuperRes Shaders:** https://gist.github.com/igv/2364ffa6e81540f29cb7ab4c9bc05b6b
 *   **CfL_Prediction Shaders:** https://github.com/Artoriuz/glsl-chroma-from-luma-prediction/blob/main/CfL_Prediction.glsl
 *   **adaptive-sharpen Shaders:** https://github.com/libretro/glsl-shaders/blob/master/sharpen/shaders/adaptive-sharpen.glsl
 *   **SSimDownscaler Shaders:** https://gist.github.com/igv/36508af3ffc84410fe39761d6969be10
-*   **MPV Player:** https://sourceforge.net/projects/mpv-player-windows/files/bootstrapper.zip/download
+*   **MPV Player:** https://github.com/shinchiro/mpv-winbuild-cmake/releases/latest
+
 <br />
 
 ---
 
 💡 *If you find this project useful, reach out via [Upwork](https://www.upwork.com/freelancers/~01a2b86360ffeb733e)/[Contra](https://contra.com/Superklok) to hire Superklok Labs today!*
-
-[MPVrepo]: https://github.com/mpv-player/mpv
-[SourceForge]: https://sourceforge.net/projects/mpv-player-windows/
-[Bootstrapper]: https://sourceforge.net/projects/mpv-player-windows/files/bootstrapper.zip/download
